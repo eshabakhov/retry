@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.eshabakhov</groupId>
     <artifactId>retry</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <name>retry</name>
     <description>Retry mechanism for operations</description>
