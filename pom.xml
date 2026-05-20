@@ -227,10 +227,10 @@
                         </dependencies>
                         <configuration>
                             <targetClasses>
-                                <param>com.eshabakhov.*</param>
+                                <param>io.github.eshabakhov.*</param>
                             </targetClasses>
                             <targetTests>
-                                <param>com.eshabakhov.*Test</param>
+                                <param>io.github.eshabakhov.*Test</param>
                             </targetTests>
                             <mutationThreshold>80</mutationThreshold>
                             <threads>4</threads>
