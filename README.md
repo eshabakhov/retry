@@ -1,6 +1,7 @@
 # Retry
 
 [![Maven](https://github.com/eshabakhov/retry/actions/workflows/mvn.yml/badge.svg)](https://github.com/eshabakhov/retry/actions/workflows/mvn.yml)
+[![Hits-of-Code](https://hitsofcode.com/github/eshabakhov/retry)](https://hitsofcode.com/github/eshabakhov/retry/view)
 [![Test Coverage](https://codecov.io/gh/eshabakhov/retry/graph/badge.svg)](https://codecov.io/gh/eshabakhov/retry)
 
 A lightweight, composable retry library for Java.
