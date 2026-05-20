@@ -40,10 +40,10 @@
         <url>https://github.com/eshabakhov/retry</url>
     </scm>
     <distributionManagement>
-        <site>
-            <id>github-pages</id>
-            <url>https://github.com/eshabakhov/retry</url>
-        </site>
+        <repository>
+            <id>central</id>
+            <url>https://central.sonatype.com/api/v1/publisher</url>
+        </repository>
     </distributionManagement>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
