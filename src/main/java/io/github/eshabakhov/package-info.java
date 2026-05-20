@@ -5,4 +5,4 @@
 /**
  * Main package for retry mechanism.
  */
-package com.eshabakhov;
+package io.github.eshabakhov;

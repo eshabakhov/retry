@@ -1,9 +1,9 @@
 /*
  * © 2026 Eset Shabakhov. Retry
  */
-package com.eshabakhov.retry;
+package io.github.eshabakhov.retry;
 
-import com.eshabakhov.RetryException;
+import io.github.eshabakhov.RetryException;
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.hamcrest.MatcherAssert;

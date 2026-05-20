@@ -1,7 +1,7 @@
 /*
  * © 2026 Eset Shabakhov. Retry
  */
-package com.eshabakhov;
+package io.github.eshabakhov;
 
 /**
  * Exception thrown when a retryable operation fails after exceeding allowed attempts.

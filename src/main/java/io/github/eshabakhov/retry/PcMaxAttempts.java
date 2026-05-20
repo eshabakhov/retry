@@ -1,7 +1,7 @@
 /*
  * © 2026 Eset Shabakhov. Retry
  */
-package com.eshabakhov.retry;
+package io.github.eshabakhov.retry;
 
 /**
  * Retry policy that limits retries to a maximum number of attempts.
