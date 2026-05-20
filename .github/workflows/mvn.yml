@@ -1,0 +1,35 @@
+name: mvn
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  verify:
+    name: Verify on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-24.04
+          - windows-2022
+          - macos-15
+        java:
+          - 21
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v6
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+          cache: maven
+      - name: Print environment info
+        run: |
+          java -version
+          mvn -version
+      - name: Build and verify
+        run: mvn -B -e clean install -Pqulice
