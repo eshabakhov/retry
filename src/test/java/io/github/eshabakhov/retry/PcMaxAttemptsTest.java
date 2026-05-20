@@ -1,7 +1,7 @@
 /*
  * © 2026 Eset Shabakhov. Retry
  */
-package com.eshabakhov.retry;
+package io.github.eshabakhov.retry;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;

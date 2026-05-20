@@ -5,4 +5,4 @@
 /**
  * Retry implementations.
  */
-package com.eshabakhov.retry;
+package io.github.eshabakhov.retry;

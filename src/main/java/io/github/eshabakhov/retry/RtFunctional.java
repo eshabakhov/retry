@@ -1,10 +1,10 @@
 /*
  * © 2026 Eset Shabakhov. Retry
  */
-package com.eshabakhov.retry;
+package io.github.eshabakhov.retry;
 
-import com.eshabakhov.Retry;
-import com.eshabakhov.RetryException;
+import io.github.eshabakhov.Retry;
+import io.github.eshabakhov.RetryException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 

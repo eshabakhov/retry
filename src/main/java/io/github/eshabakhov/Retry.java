@@ -1,7 +1,7 @@
 /*
  * © 2026 Eset Shabakhov. Retry
  */
-package com.eshabakhov;
+package io.github.eshabakhov;
 
 import java.util.concurrent.Callable;
 

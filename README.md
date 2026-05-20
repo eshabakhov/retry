@@ -27,7 +27,7 @@ for handling transient failures in a clean and predictable way.
 
 ```xml
 <dependency>
-    <groupId>com.eshabakhov</groupId>
+    <groupId>io.github.eshabakhov</groupId>
     <artifactId>retry</artifactId>
     <version>0.0.1</version>
 </dependency>
