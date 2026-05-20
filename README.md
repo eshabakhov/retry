@@ -1,5 +1,7 @@
 # Retry
 
+[![Test Coverage](https://codecov.io/gh/eshabakhov/retry/graph/badge.svg)](https://codecov.io/gh/eshabakhov/retry)
+
 A lightweight, composable retry library for Java.
 
 It provides flexible **retry policies**, **delay strategies**, and **functional execution model**
