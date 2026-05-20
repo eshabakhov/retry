@@ -45,10 +45,10 @@ Main entry point:
 Retry retry = new RtFunctional(policy, delay);
 
 String result = retry.execute(
-        "operation-name",
-        () -> {
-           return "success";
-        }
+     "operation-name",
+     () -> {
+        return "success";
+     }
 );
 ```
 
