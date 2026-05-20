@@ -224,13 +224,13 @@ mvn clean install
 Run tests:
 
 ```bash
-mvn test
+mvn clean test
 ```
 
 Mutation testing:
 
 ```bash
-mvn test -Pmutation
+mvn clean verify -Pmutation
 ```
 
 ---
