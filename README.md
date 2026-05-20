@@ -153,7 +153,6 @@ by implementing the corresponding interface and passing it to `RtFunctional`.
 ### `Retry`
 
 ```java
-@FunctionalInterface
 public interface Retry {
     <T> T execute(String name, Callable<T> operation) throws RetryException;
 }
@@ -164,9 +163,13 @@ a custom execution strategy — e.g. async retry, circuit breaker integration,
 or metric collection.
 
 ```java
-Retry retry = (name, operation) -> {
-    // your custom retry logic
-};
+public final class CustomRetry implements Retry {
+
+    @Override
+    public <T> T execute(final String name, final Callable<T> operation) throws RetryException {
+        // your custom retry logic
+    }
+}
 ```
 
 ---
