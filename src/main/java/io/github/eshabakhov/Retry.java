@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
  * Interface for executing an operation with retry logic.
  * @since 0.0.1
  */
-@FunctionalInterface
+@SuppressWarnings("PMD.ImplicitFunctionalInterface")
 public interface Retry {
 
     /**
