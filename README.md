@@ -27,9 +27,9 @@ for handling transient failures in a clean and predictable way.
 
 ```xml
 <dependency>
-    <groupId>io.github.eshabakhov</groupId>
-    <artifactId>retry</artifactId>
-    <version>0.0.1</version>
+   <groupId>io.github.eshabakhov</groupId>
+   <artifactId>retry</artifactId>
+   <version>0.0.1</version>
 </dependency>
 ```
 
@@ -45,11 +45,11 @@ Main entry point:
 Retry retry = new RtFunctional(policy, delay);
 
 String result = retry.execute(
-    "operation-name",
-    () -> {
-        return "success";
-    }
- );
+        "operation-name",
+        () -> {
+           return "success";
+        }
+);
 ```
 
 ---
@@ -90,7 +90,7 @@ Delay delay = new DlJitter(
 );
 ```
 
-Adds randomness to avoid “thundering herd” problem.
+Adds randomness to avoid "thundering herd" problem.
 
 ---
 
@@ -106,30 +106,30 @@ Retry retry = new RtFunctional(
 );
 
 String response = retry.execute(
-    "call-service", 
+    "call-service",
     () -> {
         return httpClient.call();
     }
- );
+);
 ```
 
 ---
 
-##️ Execution Model
+## Execution Model
 
 Retry loop behavior:
 
 1. Execute operation
 2. If success → return result
 3. If failure:
-    - check policy (`allows(nextAttempt)`)
-    - sleep using delay strategy
-    - retry
+   - check policy (`allows(nextAttempt)`)
+   - sleep using delay strategy
+   - retry
 4. If policy rejects → throw `RetryException`
 
 ---
 
-## Failure handling
+## Failure Handling
 
 All exceptions are wrapped into:
 
@@ -145,7 +145,77 @@ Thread.currentThread().interrupt();
 
 ---
 
-## Building from source
+## Extensibility
+
+All core components are interfaces. You can provide your own implementations
+by implementing the corresponding interface and passing it to `RtFunctional`.
+
+### `Retry`
+
+```java
+@FunctionalInterface
+public interface Retry {
+    <T> T execute(String name, Callable<T> operation) throws RetryException;
+}
+```
+
+Entry point for executing operations with retry logic. Implement to provide
+a custom execution strategy — e.g. async retry, circuit breaker integration,
+or metric collection.
+
+```java
+Retry retry = (name, operation) -> {
+    // your custom retry logic
+};
+```
+
+---
+
+### `Policy`
+
+```java
+@FunctionalInterface
+public interface Policy {
+    boolean allows(int attempt);
+}
+```
+
+Controls whether the next retry attempt is allowed. `attempt` starts from 1.
+Implement to express any custom condition — time-based limits, error type
+filtering, external circuit state, etc.
+
+```java
+// Allow retries only within a time window
+Instant deadline = Instant.now().plusSeconds(30);
+Policy policy = attempt -> Instant.now().isBefore(deadline);
+```
+
+---
+
+### `Delay`
+
+```java
+@FunctionalInterface
+public interface Delay {
+    Duration delayFor(int attempt);
+}
+```
+
+Defines how long to wait before the next attempt. `attempt` starts from 1.
+Implement to provide custom wait strategies — fixed delay, linear growth,
+external configuration, etc.
+
+```java
+// Fixed 2-second delay regardless of attempt number
+Delay delay = attempt -> Duration.ofSeconds(2);
+```
+
+All three interfaces are `@FunctionalInterface`, so lambda expressions
+are supported throughout.
+
+---
+
+## Building from Source
 
 ```bash
 mvn clean install
@@ -165,13 +235,7 @@ mvn test -Pmutation
 
 ---
 
-## License
-
-MIT License
-
----
-
-## Why this library exists
+## Why This Library Exists
 
 Most retry libraries are either:
 - too heavy (framework-level)
@@ -180,5 +244,3 @@ Most retry libraries are either:
 
 This library focuses on:
 > explicit, composable retry logic without framework dependency
-
----
