@@ -18,7 +18,7 @@ jobs:
           java-version: 21
           cache: maven
       - name: Build and run tests
-        run: mvn clean install -Pjacoco
+        run: mvn clean install -Pcoverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v6
         with:
